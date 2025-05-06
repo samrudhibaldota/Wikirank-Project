@@ -1,0 +1,5 @@
+Django==5.2
+graphframes==0.6
+lxml==5.4.0
+nltk==3.9.1
+pyspark==3.5.1
