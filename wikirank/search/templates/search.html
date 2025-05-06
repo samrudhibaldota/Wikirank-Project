@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wikipedia PageRank Search</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    
+<body>
+    <h1>Search Articles</h1>
+    <form method="get" action="/search/">
+        <input type="text" name="q" placeholder="Enter a keyword" value="{{ query|default:'' }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h2>Top Results</h2>
+        <ul>
+            {% for article in results %}
+                <li><strong>{{ article.title }}</strong> — PageRank: {{ article.pagerank }}</li>
+            {% endfor %}
+        </ul>
+    {% elif query %}
+        <p>No results found for "{{ query }}"</p>
+    {% endif %}
+</body>
+</html>
